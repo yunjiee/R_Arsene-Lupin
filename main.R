@@ -1,18 +1,18 @@
 '''
 #亞森羅蘋的書籍
 Arsène Lupin #4014
-The Golden Triangle: The Return of Arsène Lupin
+The Golden Triangle: The Return of Arsène Lupin #34795
 Arsène Lupin versus Herlock Sholmes #40203
-813
-The Teeth of the Tiger
-The Crystal Stopper
+813 #34758
+The Teeth of the Tiger #13058
+The Crystal Stopper #1563
 '''
-
 #sort(rowSums(tdmmatrix),decreasing = T)
 #barplot(top6$freq ,xlab = "word",ylab = "freq",names.arg = rownames(top6), main="前六多的詞彙的長條圖" )
 #box<-barplot(top6$freq ,xlab = "word",ylab = "freq",names.arg = rownames(top6), main="前六多的詞彙的長條圖",col = "lightblue" )
 #text(box,top6$freq,labels =top6$freq,pos=1) 
 
+#install.packages(dplyer)
 library(janeaustenr)
 library(dplyr)
 library(gutenbergr)
@@ -26,9 +26,13 @@ library(tidyverse)
 library(ggplot2)
 
 #讀資料
-titles <- c("Arsène Lupin","The Golden Triangle: The Return of Arsène Lupin","Arsène Lupin versus Herlock Sholmes","The Teeth of the Tiger","The Crystal Stopper","813")
-books <- gutenberg_works(title %in% titles) %>%
-  gutenberg_download(meta_fields = "title", mirror ="https://gutenberg.nabasny.com/")
+#舊titles <- c("Arsène Lupin","The Golden Triangle: The Return of Arsène Lupin","Arsène Lupin versus Herlock Sholmes","The Teeth of the Tiger","The Crystal Stopper","813")
+#books <- gutenberg_works(title %in% titles) %>%
+#  gutenberg_download(meta_fields = "title", mirror ="https://gutenberg.nabasny.com/")
+#books
+#新
+ebook_no <- c('4014','34795','34758','13058','1563')
+books <- gutenberg_download(ebook_no,meta_fields = "title", mirror ="https://www.gutenberg.org/")
 books
 #utenberg_download(meta_fields = "title", mirror ="https://www.gutenberg.org/")
 
